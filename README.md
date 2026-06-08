@@ -15,18 +15,29 @@
 
 ---
 
-### 🌟 Overview
-The **Requirements Specification Application** is a collaborative workspace designed to streamline the software engineering requirements phase. It enables teams to write user stories, define **Use Cases**, map **Class-Responsibility-Collaborator (CRC) Cards**, and automatically compile requirements into ready-to-render **UML diagrams** (using PlantUML and Nomnoml).
+## 👥 Scrum Team & Authors
+* **Charalampos Kounnapis** (AM: 5401) — *Product Owner & Developer*
+* **Panagiotis Christodoulou** (AM: 5501) — *Scrum Master & Developer*
 
 ---
 
-## 🚀 Quick Start (Simple & Fast)
+### 🌟 Overview
+The **Requirements Specification & Analysis Application** is a collaborative workspace designed to streamline the software engineering requirements phase. It enables teams to write user stories, define **Use Cases**, map **Class-Responsibility-Collaborator (CRC) Cards**, and automatically compile requirements into ready-to-render **UML diagrams** (using PlantUML and Nomnoml).
 
-### Prerequisites
-* **Java Development Kit (JDK) 17** or higher
-* **Maven** (packaged or installed locally)
+---
 
-### Build & Run
+## 🚀 Quick Start & Environment
+
+### Option A: Running from Eclipse IDE (Recommended)
+This project was developed and tested using **Eclipse IDE**. To run:
+1. Ensure you have the **Spring Tools** suite installed (*Help → Eclipse Marketplace*).
+2. Go to **File → Import → Maven → Existing Maven Projects**.
+3. Click **Browse**, select this project's folder, and click **Finish**.
+4. In the Package Explorer, expand the packages: `src/main/java` $\rightarrow$ `com.reqapp`.
+5. Right-click [RequirementsAppApplication.java](src/main/java/com/reqapp/RequirementsAppApplication.java) and select **Run As → Spring Boot App**.
+
+### Option B: Running from Command Line (Maven CLI)
+* **Prerequisites:** Java 17+ and Maven installed.
 1. **Clone the repository:**
    ```bash
    git clone <repository-url>
@@ -40,18 +51,74 @@ The **Requirements Specification Application** is a collaborative workspace desi
    ```bash
    mvn spring-boot:run
    ```
-4. **Access the application:**
-   * **Web App:** Open [http://localhost:8080](http://localhost:8080) in your browser.
-   * **H2 Database Console:** Open [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
-     * *JDBC URL:* `jdbc:h2:mem:testdb`
-     * *User:* `Project`
-     * *Password:* `[leave empty]`
+
+### Access Ports & Console
+* **Web Application URL:** Open [http://localhost:8080](http://localhost:8080)
+* **H2 In-Memory Database Console:** Open [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+  * *JDBC URL:* `jdbc:h2:mem:testdb`
+  * *User:* `Project`
+  * *Password:* `[leave empty]`
+
+---
+
+## 📅 Agile Sprint Backlog
+
+Development was executed using Scrum methodology, divided into **5 Sprints** to implement user stories:
+
+<details>
+<summary><b>🏃‍♂️ Sprint 1 (2 Weeks) — Authentication & Profile</b></summary>
+<br>
+
+* **US1 — Account Creation & Login**: Users register an account and log in securely.
+* **US2 — Developer Profile**: Access user-specific workspace profiles.
+* **US3 — Logout**: Securely end session.
+</details>
+
+<details>
+<summary><b>🏃‍♂️ Sprint 2 (1 Week) — Projects Management</b></summary>
+<br>
+
+* **US4 — Project Dashboard**: List all projects accessible by the user.
+* **US5 — Project Creation**: Designate workspaces to organize Use Cases and CRC cards.
+* **US6 — Project Deletion**: Delete projects and cascade-delete all associated items.
+</details>
+
+<details>
+<summary><b>🏃‍♂️ Sprint 3 (2 Weeks) — Use Cases Elicitation</b></summary>
+<br>
+
+* **US7 — Use Case Creator**: Define Use Cases, document flows, preconditions, postconditions, and associate participating Actors.
+* **US8 — Use Case Editor**: Modify existing Use Cases details.
+* **US9 — Use Case Lister**: View and manage the collection of Use Cases.
+* **US10 — Use Case Deletion**: Delete selected Use Cases.
+</details>
+
+<details>
+<summary><b>🏃‍♂️ Sprint 4 (1 Week) — CRC Cards Modeling</b></summary>
+<br>
+
+* **US11 — CRC Card Creator**: Map object-oriented designs by class name, responsibility, and collaborating classes.
+* **US12 — CRC Card Editor**: Edit responsibilities and class collaborations.
+* **US13 — Traceability Link**: Link CRC Cards directly to corresponding Use Cases.
+* **US14 — CRC Card Deletion**: Delete selected CRC cards.
+</details>
+
+<details>
+<summary><b>🏃‍♂️ Sprint 5 (2.5 Weeks) — UML Exporter & Collaboration</b></summary>
+<br>
+
+* **US15 — Use Case Diagram Generation**: Auto-compile use case requirements into PlantUML and Nomnoml scripts.
+* **US16 — Class Diagram Generation**: Auto-compile CRC cards structure into PlantUML and Nomnoml scripts.
+* **US18 — Project Sharing**: Share workspaces with teammates (assigning collaborative edit rights).
+* **US19 — Collaborative Comments**: Comment thread sections on Use Cases and CRC Cards to review design issues.
+* **Help Guidelines**: Help/User Guidelines page outlining main application features.
+</details>
 
 ---
 
 ## 🛠 Features Matrix
 
-| Feature | Description | Entities Involved |
+| Feature | Description | Entities |
 | :--- | :--- | :--- |
 | **Project Workspaces** | Create project directories and collaborate with team members. | `Project`, `User` |
 | **Use Case Builder** | Document functional requirements (Preconditions, Flows, Postconditions) and link to Actors. | `UseCase`, `Actor`, `UseCaseComment` |
@@ -108,21 +175,33 @@ software-engineering-requirements-web-app/
 │   │   └── resources/
 │   │       ├── templates/          # Thymeleaf views and page layouts
 │   │       └── application.properties
-│   └── test/                       # Unit and integration tests
+│   └── test/                       # Unit, repository, integration and acceptance tests
 ├── banner.svg                      # Animated README banner
 └── pom.xml                         # Maven dependencies and configuration
 ```
 
 ---
 
-## 🧪 Testing
+## 🧪 Testing Suite
 
-The project contains unit and integration tests covering repository persistence, service layers, security filters, and the diagram generators.
+Automated testing was implemented using **JUnit 5**, **Mockito**, and Spring Boot test facilities to validate core system behaviors.
 
-To execute all tests, run:
+### Unit Tests
+* **`DiagramGeneratorTest`**: Verifies that `GeneratorFactory` creates correct PlantUML/Nomnoml generator implementations, and validates generated script contents for correctness.
+* **`ProjectServiceTest`**: Validates project operations (save, delete) and checks that sharing permissions/access are correctly restricted.
+* **`ProjectServiceCommentTest`**: Tests saving and retrieving discussion comments for Use Cases and CRC Cards.
+
+### Repository Tests
+* **`ProjectRepositoryTest`**: Validates custom Spring Data JPA queries in the database layer, checking that project owners and teammates can fetch projects correctly, but unrelated users are blocked.
+
+### Integration Tests
+* **`SimpleSecurityAndAccessIntegrationTest`**: Tests authentication rules and redirects unauthorized traffic back to the login view.
+
+To execute the test suite:
 ```bash
 mvn test
 ```
+*(Alternatively, in Eclipse, right-click the project folder and click **Run As → JUnit Test**).*
 
 ---
 
