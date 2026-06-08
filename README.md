@@ -194,5 +194,5 @@ This application automatically converts your structural data into UML code!
 ---
 
 <p align="center">
-  <sub>Developed by <a href="https://github.com/Paanicc">Panagiotis Christodoulou</a> • Built with 💚 using Spring Boot</sub>
+  <sub>Developed by <a href="https://github.com/Paanicc">Panagiotis Christodoulou</a></sub>
 </p>
