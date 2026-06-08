@@ -130,26 +130,34 @@
 
   <!-- Animated Badges -->
   <!-- Spring Boot -->
-  <g class="badge-group" transform="translate(280, 145)">
-    <rect width="95" height="24" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="1" />
-    <text x="47.5" y="16" class="badge-text" text-anchor="middle">Spring Boot 3</text>
+  <g transform="translate(280, 145)">
+    <g class="badge-group">
+      <rect width="95" height="24" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="1" />
+      <text x="47.5" y="16" class="badge-text" text-anchor="middle">Spring Boot 3</text>
+    </g>
   </g>
   
   <!-- Java 17 -->
-  <g class="badge-group" transform="translate(390, 145)">
-    <rect width="70" height="24" rx="12" fill="#1e293b" stroke="#e11d48" stroke-width="1" />
-    <text x="35" y="16" class="badge-text" text-anchor="middle">Java 17</text>
+  <g transform="translate(390, 145)">
+    <g class="badge-group">
+      <rect width="70" height="24" rx="12" fill="#1e293b" stroke="#e11d48" stroke-width="1" />
+      <text x="35" y="16" class="badge-text" text-anchor="middle">Java 17</text>
+    </g>
   </g>
 
   <!-- Thymeleaf -->
-  <g class="badge-group" transform="translate(475, 145)">
-    <rect width="90" height="24" rx="12" fill="#1e293b" stroke="#06b6d4" stroke-width="1" />
-    <text x="45" y="16" class="badge-text" text-anchor="middle">Thymeleaf</text>
+  <g transform="translate(475, 145)">
+    <g class="badge-group">
+      <rect width="90" height="24" rx="12" fill="#1e293b" stroke="#06b6d4" stroke-width="1" />
+      <text x="45" y="16" class="badge-text" text-anchor="middle">Thymeleaf</text>
+    </g>
   </g>
 
   <!-- H2 DB -->
-  <g class="badge-group" transform="translate(580, 145)">
-    <rect width="70" height="24" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1" />
-    <text x="35" y="16" class="badge-text" text-anchor="middle">H2 DB</text>
+  <g transform="translate(580, 145)">
+    <g class="badge-group">
+      <rect width="70" height="24" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1" />
+      <text x="35" y="16" class="badge-text" text-anchor="middle">H2 DB</text>
+    </g>
   </g>
 </svg>
