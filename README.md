@@ -15,9 +15,8 @@
 
 ---
 
-## 👥 Scrum Team & Authors
-* **Charalampos Kounnapis** (AM: 5401) — *Product Owner & Developer*
-* **Panagiotis Christodoulou** (AM: 5501) — *Scrum Master & Developer*
+## 👥 Author & Owner
+* **Panagiotis Christodoulou** (AM: 5501) — *Owner & Developer*
 
 ---
 
