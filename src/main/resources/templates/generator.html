@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <title>Diagram Generator</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-10">
+            <div class="card shadow-sm border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">UML Diagram Generator: <span th:text="${project.name}"></span></h3>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/projects/{id}/generate(id=${project.id})}" method="post" class="row g-3 mb-4">
+                        <div class="col-md-5">
+                            <label for="type" class="form-label fw-bold">1. Select Diagram Type</label>
+                            <select id="type" name="type" class="form-select">
+                                <option value="usecase" th:selected="${type == 'usecase'}">Use Case Diagram</option>
+                                <option value="class" th:selected="${type == 'class'}">Class Diagram (from CRC Cards)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="tool" class="form-label fw-bold">2. Select Tool Format</label>
+                            <select id="tool" name="tool" class="form-select">
+                                <option value="PlantUML" th:selected="${tool == 'PlantUML'}">PlantUML</option>
+                                <option value="Nomnoml" th:selected="${tool == 'Nomnoml'}">Nomnoml</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Generate</button>
+                        </div>
+                    </form>
+
+                    <div th:if="${script != null}" class="mt-4">
+                        <h5 class="border-bottom pb-2">Generated Script</h5>
+                        <p class="text-muted small">Copy and paste this script into <a th:href="${tool == 'PlantUML' ? 'https://www.plantuml.com/plantuml/uml/' : 'https://www.nomnoml.com/'}" target="_blank" th:text="${tool}"></a> .</p>
+                        <textarea class="form-control font-monospace" rows="15" readonly th:text="${script}" style="background-color: #f8f9fa;"></textarea>
+                        
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/projects}" class="btn btn-secondary">Back to Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

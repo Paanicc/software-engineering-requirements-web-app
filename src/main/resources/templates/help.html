@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout}">
+
+<head>
+    <title>User Guidelines</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="card mt-4 mb-4">
+            <div class="card-header bg-info text-white">
+                <h2 class="h4 mb-0">User Guidelines & Help</h2>
+            </div>
+            <div class="card-body">
+                <p class="lead">Welcome to the Web Application Requirements Specification and Analysis App. Below are
+                    instructions on how to use its main features.</p>
+
+                <div class="mb-4">
+                    <h4 class="text-primary border-bottom pb-2">1. Projects</h4>
+                    <p><strong>My Projects:</strong> After logging in, you can create new projects or view/edit/remove
+                        existing
+                        ones. Each project acts as a container for your Use Cases and CRC Cards.</p>
+                    <p><strong>Sharing:</strong> You can share your projects with other users by specifying their
+                        username. Shared projects appear in a separate section on your dashboard.</p>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="text-primary border-bottom pb-2">2. Use Cases</h4>
+                    <p><strong>Managing Use Cases:</strong> Inside a project, you can add Use Cases. You can add title,
+                        actors, preconditions, main flow, and postconditions.</p>
+                    <p><strong>Actors:</strong> You can define actors simply by typing their names (comma-separated)
+                        when creating or editing a Use Case. The system will automatically create or link them.</p>
+                    <p><strong>Example Actors:</strong> Admin, Employee, Customer </p>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="text-primary border-bottom pb-2">3. CRC Cards</h4>
+                    <p><strong>Domain Modeling:</strong> You can create CRC (Class-Responsibility-Collaboration) cards
+                        to design your domain model. Add Class Name, Responsibilities, and Collaborators, and optionally
+                        link CRC cards to relevant Use Cases.</p>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="text-primary border-bottom pb-2">4. UML Diagram Generation</h4>
+                    <p><strong>Generate Diagrams:</strong> For each project, you can generate UML Class diagrams (based
+                        on CRC
+                        cards) and Use Case diagrams. Select your preferred tool (PlantUML or Nomnoml) to get the
+                        corresponding script.</p>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="text-primary border-bottom pb-2">5. Collaboration & Comments</h4>
+                    <p><strong>Commenting:</strong> You can discuss requirements by leaving comments on any Use Case or
+                        CRC Card within your own or shared projects.</p>
+                </div>
+                <div class="mb-4">
+                    <h4 class="text-primary border-bottom pb-2">6. Profile</h4>
+                    <p><strong>Edit Profile:</strong> You can click on the username on the top right corner and then you
+                        will be able to Manage your Profile (Change your First Name, Last Name, E-mail and Password)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

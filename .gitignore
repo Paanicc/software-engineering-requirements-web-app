@@ -1,0 +1,9 @@
+# Maven Build directory
+target/
+
+# Log files
+*.log
+
+# OS temporary files
+.DS_Store
+Thumbs.db
