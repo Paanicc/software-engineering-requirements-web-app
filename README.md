@@ -16,7 +16,9 @@
 ---
 
 ## 👥 Author & Owner
-* **Panagiotis Christodoulou** (AM: 5501) — *Owner & Developer*
+* **Panagiotis Christodoulou** — *Owner & Developer*
+* **Charalambos Kounnapis** — *Owner & Developer*
+
 
 ---
 
